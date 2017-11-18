@@ -9,6 +9,7 @@
 import UIKit
 import GameController
 
+// TODO: Support touchUp event
 public class TouchManager {
     public class DisposeToken {
         let onDispose: () -> ()
