@@ -1,0 +1,7 @@
+sources:
+  - GestureTV
+templates:
+  - Pods/Sourcery/Templates/AutoEquatable.stencil
+output:
+  GestureTV/Sourcery.out.swift
+

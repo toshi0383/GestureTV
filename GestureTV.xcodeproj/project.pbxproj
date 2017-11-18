@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F5401E31FACA49900299564 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5401E21FACA49900299564 /* AppDelegate.swift */; };
+		1F5401E81FACA49900299564 /* PageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F5401E61FACA49900299564 /* PageViewController.storyboard */; };
+		1F5401EA1FACA49900299564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5401E91FACA49900299564 /* Assets.xcassets */; };
+		1F79C4731FC039CD00DAFA3C /* TouchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79C4721FC039CD00DAFA3C /* TouchManager.swift */; };
+		1F79C4761FC0415C00DAFA3C /* AcceleratedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79C4751FC0415C00DAFA3C /* AcceleratedScrollViewController.swift */; };
+		1F79C4781FC0419800DAFA3C /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79C4771FC0419800DAFA3C /* Storyboardable.swift */; };
+		1F79C47A1FC0484C00DAFA3C /* AcceleratedScrollViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F79C4791FC0482D00DAFA3C /* AcceleratedScrollViewController.storyboard */; };
+		1FE323331FC0384D0087809C /* AutoEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE323321FC0384D0087809C /* AutoEquatable.swift */; };
+		1FE323351FC038670087809C /* Sourcery.out.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE323341FC038670087809C /* Sourcery.out.swift */; };
+		1FE323391FC039480087809C /* CGPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE323381FC039480087809C /* CGPointExtension.swift */; };
+		1FE955391FBF38B100F02601 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE955381FBF38B100F02601 /* PageViewController.swift */; };
+		5208BFA73DE77816B86E0389 /* libPods-GestureTV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 11A42E6C90DB49A08DCEA50D /* libPods-GestureTV.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		11A42E6C90DB49A08DCEA50D /* libPods-GestureTV.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GestureTV.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F5401DF1FACA49900299564 /* GestureTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GestureTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F5401E21FACA49900299564 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1F5401E71FACA49900299564 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PageViewController.storyboard; sourceTree = "<group>"; };
+		1F5401E91FACA49900299564 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1F5401EB1FACA49900299564 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F79C4721FC039CD00DAFA3C /* TouchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchManager.swift; sourceTree = "<group>"; };
+		1F79C4751FC0415C00DAFA3C /* AcceleratedScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceleratedScrollViewController.swift; sourceTree = "<group>"; };
+		1F79C4771FC0419800DAFA3C /* Storyboardable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
+		1F79C4791FC0482D00DAFA3C /* AcceleratedScrollViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = AcceleratedScrollViewController.storyboard; path = /Users/toshi0383/dev/tmp/GestureTV/GestureTV/AcceleratedScrollViewController.storyboard; sourceTree = "<absolute>"; };
+		1FE323321FC0384D0087809C /* AutoEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoEquatable.swift; sourceTree = "<group>"; };
+		1FE323341FC038670087809C /* Sourcery.out.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sourcery.out.swift; sourceTree = "<group>"; };
+		1FE323381FC039480087809C /* CGPointExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtension.swift; sourceTree = "<group>"; };
+		1FE955381FBF38B100F02601 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		8C9DE2129103FF070CF0F574 /* Pods-GestureTV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GestureTV.release.xcconfig"; path = "Pods/Target Support Files/Pods-GestureTV/Pods-GestureTV.release.xcconfig"; sourceTree = "<group>"; };
+		FD579DCBBD6D890925F69D0F /* Pods-GestureTV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GestureTV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GestureTV/Pods-GestureTV.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F5401DC1FACA49900299564 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5208BFA73DE77816B86E0389 /* libPods-GestureTV.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F5401D61FACA49900299564 = {
+			isa = PBXGroup;
+			children = (
+				1F5401E11FACA49900299564 /* GestureTV */,
+				1F5401E01FACA49900299564 /* Products */,
+				D57EC8091D62FC9FD5FC4914 /* Pods */,
+				BB7BA03D893E587201D022AA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1F5401E01FACA49900299564 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F5401DF1FACA49900299564 /* GestureTV.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F5401E11FACA49900299564 /* GestureTV */ = {
+			isa = PBXGroup;
+			children = (
+				1F79C4721FC039CD00DAFA3C /* TouchManager.swift */,
+				1F5401E21FACA49900299564 /* AppDelegate.swift */,
+				1F79C4751FC0415C00DAFA3C /* AcceleratedScrollViewController.swift */,
+				1F79C4791FC0482D00DAFA3C /* AcceleratedScrollViewController.storyboard */,
+				1F5401E61FACA49900299564 /* PageViewController.storyboard */,
+				1FE955381FBF38B100F02601 /* PageViewController.swift */,
+				1F5401E91FACA49900299564 /* Assets.xcassets */,
+				1F5401EB1FACA49900299564 /* Info.plist */,
+				1FE323321FC0384D0087809C /* AutoEquatable.swift */,
+				1FE323341FC038670087809C /* Sourcery.out.swift */,
+				1F79C4771FC0419800DAFA3C /* Storyboardable.swift */,
+				1FE323381FC039480087809C /* CGPointExtension.swift */,
+			);
+			path = GestureTV;
+			sourceTree = "<group>";
+		};
+		BB7BA03D893E587201D022AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				11A42E6C90DB49A08DCEA50D /* libPods-GestureTV.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D57EC8091D62FC9FD5FC4914 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FD579DCBBD6D890925F69D0F /* Pods-GestureTV.debug.xcconfig */,
+				8C9DE2129103FF070CF0F574 /* Pods-GestureTV.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F5401DE1FACA49900299564 /* GestureTV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F5401EE1FACA49900299564 /* Build configuration list for PBXNativeTarget "GestureTV" */;
+			buildPhases = (
+				1F79C4741FC039DD00DAFA3C /* Sourcery */,
+				3071174833861608C287E7EF /* [CP] Check Pods Manifest.lock */,
+				1F5401DB1FACA49900299564 /* Sources */,
+				1F5401DC1FACA49900299564 /* Frameworks */,
+				1F5401DD1FACA49900299564 /* Resources */,
+				9DE5C9A1F567A0B6E7BF9CA3 /* [CP] Embed Pods Frameworks */,
+				24F25987505A93E6686005BD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GestureTV;
+			productName = GestureTV;
+			productReference = 1F5401DF1FACA49900299564 /* GestureTV.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F5401D71FACA49900299564 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = toshi0383;
+				TargetAttributes = {
+					1F5401DE1FACA49900299564 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 1F5401DA1FACA49900299564 /* Build configuration list for PBXProject "GestureTV" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1F5401D61FACA49900299564;
+			productRefGroup = 1F5401E01FACA49900299564 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F5401DE1FACA49900299564 /* GestureTV */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F5401DD1FACA49900299564 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F5401EA1FACA49900299564 /* Assets.xcassets in Resources */,
+				1F79C47A1FC0484C00DAFA3C /* AcceleratedScrollViewController.storyboard in Resources */,
+				1F5401E81FACA49900299564 /* PageViewController.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F79C4741FC039DD00DAFA3C /* Sourcery */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Sourcery;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ./Pods/Sourcery/bin/sourcery;
+			showEnvVarsInLog = 0;
+		};
+		24F25987505A93E6686005BD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GestureTV/Pods-GestureTV-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3071174833861608C287E7EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GestureTV-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DE5C9A1F567A0B6E7BF9CA3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GestureTV/Pods-GestureTV-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F5401DB1FACA49900299564 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F79C4731FC039CD00DAFA3C /* TouchManager.swift in Sources */,
+				1F79C4761FC0415C00DAFA3C /* AcceleratedScrollViewController.swift in Sources */,
+				1FE955391FBF38B100F02601 /* PageViewController.swift in Sources */,
+				1FE323391FC039480087809C /* CGPointExtension.swift in Sources */,
+				1F79C4781FC0419800DAFA3C /* Storyboardable.swift in Sources */,
+				1F5401E31FACA49900299564 /* AppDelegate.swift in Sources */,
+				1FE323331FC0384D0087809C /* AutoEquatable.swift in Sources */,
+				1FE323351FC038670087809C /* Sourcery.out.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1F5401E61FACA49900299564 /* PageViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F5401E71FACA49900299564 /* Base */,
+			);
+			name = PageViewController.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1F5401EC1FACA49900299564 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 11.0;
+			};
+			name = Debug;
+		};
+		1F5401ED1FACA49900299564 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TVOS_DEPLOYMENT_TARGET = 11.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1F5401EF1FACA49900299564 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD579DCBBD6D890925F69D0F /* Pods-GestureTV.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T47KPZ35V7;
+				INFOPLIST_FILE = GestureTV/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.toshi0383.GestureTV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		1F5401F01FACA49900299564 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C9DE2129103FF070CF0F574 /* Pods-GestureTV.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T47KPZ35V7;
+				INFOPLIST_FILE = GestureTV/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.toshi0383.GestureTV;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F5401DA1FACA49900299564 /* Build configuration list for PBXProject "GestureTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F5401EC1FACA49900299564 /* Debug */,
+				1F5401ED1FACA49900299564 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F5401EE1FACA49900299564 /* Build configuration list for PBXNativeTarget "GestureTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F5401EF1FACA49900299564 /* Debug */,
+				1F5401F01FACA49900299564 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1F5401D71FACA49900299564 /* Project object */;
+}
