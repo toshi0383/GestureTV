@@ -8,56 +8,63 @@
 
 import UIKit
 
-protocol IndexTitleScrollViewDataSource {
-    func indexTitleScrollView(_ indexTitleScrollView: IndexTitleScrollView, viewForRowAt indexPath: IndexPath) -> UIView?
-    func numberOfRowsInIndexTitleScrollView(_ indexTitleScrollView: IndexTitleScrollView) -> Int
+protocol IndexTitlesViewDelegate {
+    func indexTitlesViewDidUpdateFocusAt(_ indexPath: IndexPath)
 }
 
-class IndexTitleScrollView: UIScrollView {
+class IndexTitlesView: UIView {
+    @IBOutlet private weak var stackView: UIStackView!
+    var delegate: IndexTitlesViewDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .white
     }
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        if let next = context.nextFocusedView, let index = stackView.arrangedSubviews.index(of: next) {
+            delegate?.indexTitlesViewDidUpdateFocusAt(IndexPath(row: index, section: 0))
+        }
     }
 }
 
 extension TouchManager.TouchState {
     var isScrollingVerticallyOnRightEdge: Bool {
-        print("TouchState.self: \(self)")
         return point.x > 0.8
     }
 }
 
-class AcceleratedScrollViewController: UIViewController, Storyboardable, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet private weak var tableView: UITableView!
-    @IBOutlet private weak var indexTitleScrollView: IndexTitleScrollView! {
+class AcceleratedScrollViewController: UIViewController, Storyboardable, UITableViewDataSource, UITableViewDelegate, IndexTitlesViewDelegate {
+
+    @IBOutlet private weak var tableView: UITableView! {
         didSet {
-            indexTitleScrollView.alpha = 0.0
+            tableView.dataSource = self
+            tableView.delegate = self
+        }
+    }
+    @IBOutlet private weak var indexTitlesView: IndexTitlesView! {
+        didSet {
+            indexTitlesView.delegate = self
+            indexTitlesView.alpha = 0.0
         }
     }
     private var token: TouchManager.DisposeToken?
+
+    // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.reloadData()
         token = TouchManager.shared.addObserver { [weak self] touchState in
             guard let me = self else {
                 return
             }
             if touchState.isScrollingVerticallyOnRightEdge {
-                if me.indexTitleScrollView.alpha != 1.0 {
-                    me.indexTitleScrollView.alpha = 1.0
+                if me.indexTitlesView.alpha != 1.0 {
+                    me.indexTitlesView.alpha = 1.0
                     me.tableView.isUserInteractionEnabled = false
                     me.tableView.visibleCells.forEach { $0.isUserInteractionEnabled  = false }
                     me.setNeedsFocusUpdate()
                     me.updateFocusIfNeeded()
                 }
             } else {
-                if me.indexTitleScrollView.alpha != 0.0 {
-                    me.indexTitleScrollView.alpha = 0.0
+                if me.indexTitlesView.alpha != 0.0 {
+                    me.indexTitlesView.alpha = 0.0
                     me.tableView.isUserInteractionEnabled = true
                     me.tableView.visibleCells.forEach { $0.isUserInteractionEnabled = true }
                     me.setNeedsFocusUpdate()
@@ -84,5 +91,10 @@ class AcceleratedScrollViewController: UIViewController, Storyboardable, UITable
     // MARK: UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+    }
+    // MARK: IndexTitlesViewDelegate
+    func indexTitlesViewDidUpdateFocusAt(_ indexPath: IndexPath) {
+        let ip = IndexPath(row: indexPath.row * 10, section: 0)
+        tableView.scrollToRow(at: ip, at: .top, animated: true)
     }
 }

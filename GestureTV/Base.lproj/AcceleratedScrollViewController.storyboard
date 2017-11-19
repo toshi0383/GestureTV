@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -46,42 +47,79 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vag-SU-yft" customClass="IndexTitleScrollView" customModule="GestureTV" customModuleProvider="target">
-                                <rect key="frame" x="1501" y="60" width="329" height="960"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sBe-Zf-uCc" customClass="IndexTitlesView" customModule="GestureTV" customModuleProvider="target">
+                                <rect key="frame" x="1541" y="60" width="259" height="960"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnP-v1-Lcv">
-                                        <rect key="frame" x="67" y="45" width="195" height="86"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpi-do-PfN">
-                                        <rect key="frame" x="67" y="187" width="195" height="86"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rz2-0v-fYA">
-                                        <rect key="frame" x="67" y="333" width="195" height="86"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="87j-iQ-xkR">
+                                        <rect key="frame" x="0.0" y="0.0" width="259" height="960"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="plain" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ri-Bu-4T1">
+                                                <rect key="frame" x="32" y="0.0" width="195" height="86"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="plain" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nQG-1s-t5r">
+                                                <rect key="frame" x="32" y="125" width="195" height="86"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="plain" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VEW-rw-Zve">
+                                                <rect key="frame" x="32" y="250" width="195" height="86"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="plain" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lfo-1r-gVq">
+                                                <rect key="frame" x="32" y="375" width="195" height="86"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="plain" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFQ-1o-CX9">
+                                                <rect key="frame" x="32" y="499" width="195" height="86"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="plain" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyb-5W-7Da">
+                                                <rect key="frame" x="32" y="624" width="195" height="86"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="plain" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yei-HJ-SbX">
+                                                <rect key="frame" x="32" y="749" width="195" height="86"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="plain" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMz-wQ-4Sf">
+                                                <rect key="frame" x="32" y="874" width="195" height="86"/>
+                                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                            </scrollView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="87j-iQ-xkR" firstAttribute="leading" secondItem="sBe-Zf-uCc" secondAttribute="leading" id="3Wh-pC-vjb"/>
+                                    <constraint firstAttribute="trailing" secondItem="87j-iQ-xkR" secondAttribute="trailing" id="Cgz-zj-rYG"/>
+                                    <constraint firstAttribute="bottom" secondItem="87j-iQ-xkR" secondAttribute="bottom" id="XDn-5m-kMG"/>
+                                    <constraint firstItem="87j-iQ-xkR" firstAttribute="top" secondItem="sBe-Zf-uCc" secondAttribute="top" id="uZY-Sk-76b"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="stackView" destination="87j-iQ-xkR" id="2DJ-jn-jYB"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="vag-SU-yft" firstAttribute="top" secondItem="ERH-Wg-Gwk" secondAttribute="top" constant="60" id="6ND-Io-Y1e"/>
-                            <constraint firstAttribute="trailing" secondItem="vag-SU-yft" secondAttribute="trailing" constant="90" id="BnI-un-dXM"/>
+                            <constraint firstAttribute="bottom" secondItem="sBe-Zf-uCc" secondAttribute="bottom" constant="60" id="1rQ-bS-Ihv"/>
                             <constraint firstItem="qJe-dX-Dmo" firstAttribute="top" secondItem="ERH-Wg-Gwk" secondAttribute="top" constant="60" id="GRk-Rj-uLc"/>
-                            <constraint firstItem="vag-SU-yft" firstAttribute="leading" secondItem="qJe-dX-Dmo" secondAttribute="trailing" constant="60" id="OqF-Sl-nT8"/>
-                            <constraint firstAttribute="bottom" secondItem="vag-SU-yft" secondAttribute="bottom" constant="60" id="bdC-Tn-uPA"/>
+                            <constraint firstItem="sBe-Zf-uCc" firstAttribute="top" secondItem="ERH-Wg-Gwk" secondAttribute="top" constant="60" id="Hdq-1n-lWQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sBe-Zf-uCc" secondAttribute="trailing" constant="100" id="Sbd-oy-PnH"/>
                             <constraint firstItem="qJe-dX-Dmo" firstAttribute="leading" secondItem="ERH-Wg-Gwk" secondAttribute="leading" constant="90" id="ilk-fB-i5g"/>
+                            <constraint firstItem="sBe-Zf-uCc" firstAttribute="leading" secondItem="qJe-dX-Dmo" secondAttribute="trailing" constant="100" id="mfz-HC-cfD"/>
                             <constraint firstAttribute="bottom" secondItem="qJe-dX-Dmo" secondAttribute="bottom" constant="60" id="ozP-O7-H6B"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="indexTitleScrollView" destination="vag-SU-yft" id="Diu-Ns-ZQi"/>
+                        <outlet property="indexTitlesView" destination="sBe-Zf-uCc" id="kgx-zy-VCm"/>
                         <outlet property="tableView" destination="qJe-dX-Dmo" id="niX-sa-YKd"/>
                     </connections>
                 </viewController>
