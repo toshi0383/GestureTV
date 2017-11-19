@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F29ABD21FC111AF00461E39 /* AcceleratedScrollViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F29ABD01FC111AF00461E39 /* AcceleratedScrollViewController.storyboard */; };
 		1F5401E31FACA49900299564 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5401E21FACA49900299564 /* AppDelegate.swift */; };
 		1F5401E81FACA49900299564 /* PageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F5401E61FACA49900299564 /* PageViewController.storyboard */; };
 		1F5401EA1FACA49900299564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5401E91FACA49900299564 /* Assets.xcassets */; };
 		1F79C4731FC039CD00DAFA3C /* TouchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79C4721FC039CD00DAFA3C /* TouchManager.swift */; };
 		1F79C4761FC0415C00DAFA3C /* AcceleratedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79C4751FC0415C00DAFA3C /* AcceleratedScrollViewController.swift */; };
 		1F79C4781FC0419800DAFA3C /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79C4771FC0419800DAFA3C /* Storyboardable.swift */; };
-		1F79C47A1FC0484C00DAFA3C /* AcceleratedScrollViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F79C4791FC0482D00DAFA3C /* AcceleratedScrollViewController.storyboard */; };
 		1FE323331FC0384D0087809C /* AutoEquatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE323321FC0384D0087809C /* AutoEquatable.swift */; };
 		1FE323351FC038670087809C /* Sourcery.out.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE323341FC038670087809C /* Sourcery.out.swift */; };
 		1FE323391FC039480087809C /* CGPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE323381FC039480087809C /* CGPointExtension.swift */; };
@@ -23,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		11A42E6C90DB49A08DCEA50D /* libPods-GestureTV.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GestureTV.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F29ABD11FC111AF00461E39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AcceleratedScrollViewController.storyboard; sourceTree = "<group>"; };
 		1F5401DF1FACA49900299564 /* GestureTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GestureTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5401E21FACA49900299564 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F5401E71FACA49900299564 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PageViewController.storyboard; sourceTree = "<group>"; };
@@ -31,7 +32,6 @@
 		1F79C4721FC039CD00DAFA3C /* TouchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchManager.swift; sourceTree = "<group>"; };
 		1F79C4751FC0415C00DAFA3C /* AcceleratedScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceleratedScrollViewController.swift; sourceTree = "<group>"; };
 		1F79C4771FC0419800DAFA3C /* Storyboardable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
-		1F79C4791FC0482D00DAFA3C /* AcceleratedScrollViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = AcceleratedScrollViewController.storyboard; path = /Users/toshi0383/dev/tmp/GestureTV/GestureTV/AcceleratedScrollViewController.storyboard; sourceTree = "<absolute>"; };
 		1FE323321FC0384D0087809C /* AutoEquatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoEquatable.swift; sourceTree = "<group>"; };
 		1FE323341FC038670087809C /* Sourcery.out.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sourcery.out.swift; sourceTree = "<group>"; };
 		1FE323381FC039480087809C /* CGPointExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtension.swift; sourceTree = "<group>"; };
@@ -75,8 +75,8 @@
 			children = (
 				1F79C4721FC039CD00DAFA3C /* TouchManager.swift */,
 				1F5401E21FACA49900299564 /* AppDelegate.swift */,
+				1F29ABD01FC111AF00461E39 /* AcceleratedScrollViewController.storyboard */,
 				1F79C4751FC0415C00DAFA3C /* AcceleratedScrollViewController.swift */,
-				1F79C4791FC0482D00DAFA3C /* AcceleratedScrollViewController.storyboard */,
 				1F5401E61FACA49900299564 /* PageViewController.storyboard */,
 				1FE955381FBF38B100F02601 /* PageViewController.swift */,
 				1F5401E91FACA49900299564 /* Assets.xcassets */,
@@ -170,7 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F5401EA1FACA49900299564 /* Assets.xcassets in Resources */,
-				1F79C47A1FC0484C00DAFA3C /* AcceleratedScrollViewController.storyboard in Resources */,
+				1F29ABD21FC111AF00461E39 /* AcceleratedScrollViewController.storyboard in Resources */,
 				1F5401E81FACA49900299564 /* PageViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +262,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		1F29ABD01FC111AF00461E39 /* AcceleratedScrollViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F29ABD11FC111AF00461E39 /* Base */,
+			);
+			name = AcceleratedScrollViewController.storyboard;
+			sourceTree = "<group>";
+		};
 		1F5401E61FACA49900299564 /* PageViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
