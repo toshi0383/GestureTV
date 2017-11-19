@@ -30,7 +30,7 @@ extension TouchManager.TouchState {
     }
 }
 
-class AcceleratedScrollViewController: UIViewController, Storyboardable, UITableViewDataSource {
+class AcceleratedScrollViewController: UIViewController, Storyboardable, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var indexTitleScrollView: IndexTitleScrollView! {
         didSet {
@@ -41,6 +41,7 @@ class AcceleratedScrollViewController: UIViewController, Storyboardable, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.reloadData()
         token = TouchManager.shared.addObserver { [weak self] touchState in
             guard let me = self else {
@@ -79,5 +80,9 @@ class AcceleratedScrollViewController: UIViewController, Storyboardable, UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
         cell.textLabel?.text = items[indexPath.row]
         return cell
+    }
+    // MARK: UITableViewDelegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
