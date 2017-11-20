@@ -15,5 +15,6 @@ xcuserdata/
 *.xcscmblueprint
 
 Pods/
+build/
 Carthage/
 
