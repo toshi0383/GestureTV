@@ -6,6 +6,7 @@
 //  Copyright © 2017 toshi0383. All rights reserved.
 //
 
+import GestureTV
 import UIKit
 
 @UIApplicationMain

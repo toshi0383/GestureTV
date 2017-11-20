@@ -1,8 +1,16 @@
 name: GestureTV
+fileGroups:
+  - configs
+configFiles:
+  Debug: configs/Base.xcconfig
+  Release: configs/Base.xcconfig
 targets:
   GestureTV:
     platform: tvOS
     type: framework
+    configFiles:
+      Debug: configs/GestureTV.xcconfig
+      Release: configs/GestureTV.xcconfig
     sources: 
       - GestureTV
     prebuildScripts:
@@ -13,6 +21,9 @@ targets:
     type: application
     sources: 
       - GestureTVExample
+    configFiles:
+      Debug: configs/GestureTVExample.xcconfig
+      Release: configs/GestureTVExample.xcconfig
     dependencies:
       - target: GestureTV
 

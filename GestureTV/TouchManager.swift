@@ -38,7 +38,7 @@ public class TouchManager {
                 self = x < 0 ? .left(cgPoint) : .right(cgPoint)
             }
         }
-        var point: CGPoint {
+        public var point: CGPoint {
             switch self {
             case .right(let point): return point
             case .left(let point): return point
@@ -47,10 +47,10 @@ public class TouchManager {
             case .unknown: return .zero
             }
         }
-        var absoluteX: CGFloat {
+        public var absoluteX: CGFloat {
             return abs(point.x)
         }
-        var absoluteY: CGFloat {
+        public var absoluteY: CGFloat {
             return abs(point.y)
         }
     }
