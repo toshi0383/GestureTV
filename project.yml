@@ -1,0 +1,18 @@
+name: GestureTV
+targets:
+  GestureTV:
+    platform: tvOS
+    type: framework
+    sources: 
+      - GestureTV
+    prebuildScripts:
+      - script: |
+            ./Pods/Sourcery/bin/sourcery
+  GestureTVExample:
+    platform: tvOS
+    type: application
+    sources: 
+      - GestureTVExample
+    dependencies:
+      - target: GestureTV
+

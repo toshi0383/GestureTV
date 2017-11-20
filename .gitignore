@@ -1,4 +1,6 @@
 .DS_Store
+*.xcodeproj
+*.xcworkspace
 
 *.pbxuser
 !default.pbxuser
