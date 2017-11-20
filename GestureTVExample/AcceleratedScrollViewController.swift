@@ -14,10 +14,33 @@ protocol IndexTitlesViewDelegate {
 }
 
 class IndexTitlesView: UIView {
+
     @IBOutlet private weak var stackView: UIStackView!
     var delegate: IndexTitlesViewDelegate?
-    override func awakeFromNib() {
-        super.awakeFromNib()
+
+    private var _preferredFocusedView: UIView?
+    override var preferredFocusEnvironments: [UIFocusEnvironment] {
+        return [_preferredFocusedView].flatMap { $0 }
+    }
+    private var token: TouchManager.DisposeToken?
+
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        // Programmatically accelerate scroll
+        token = TouchManager.shared.addObserver { [weak self] touchState in
+            guard let me = self else { return }
+            let y: CGFloat = (touchState.point.y + 1) / 2
+            let count = me.stackView.arrangedSubviews.count
+            let preferredIndex = count - Int(y * CGFloat(count)) - 1
+            if me.stackView.arrangedSubviews.count > preferredIndex {
+                me._preferredFocusedView = me.stackView.arrangedSubviews[preferredIndex]
+                me.setNeedsFocusUpdate()
+                me.updateFocusIfNeeded()
+            }
+        }
+    }
+    deinit {
+        token?.dispose()
     }
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         if let next = context.nextFocusedView, let index = stackView.arrangedSubviews.index(of: next) {
