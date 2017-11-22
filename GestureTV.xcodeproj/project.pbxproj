@@ -174,7 +174,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = "CL_838233530774-1" /* Build configuration list for PBXNativeTarget "GestureTV" */;
 			buildPhases = (
-				SSBP_2820211950 /* Run Script */,
+				SSBP_6511203715 /* Run Script */,
 				SBP_83823353077 /* Sources */,
 				HBP_83823353077 /* Headers */,
 			);
@@ -226,7 +226,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		SSBP_2820211950 /* Run Script */ = {
+		SSBP_6511203715 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -238,7 +238,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Pods/Sourcery/bin/sourcery\n";
+			shellScript = "if [ -z $CARTHAGE ]; then ./Pods/Sourcery/bin/sourcery; fi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
