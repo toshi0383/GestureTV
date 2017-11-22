@@ -15,7 +15,7 @@ targets:
       - GestureTV
     prebuildScripts:
       - script: |
-            ./Pods/Sourcery/bin/sourcery
+            if [ -z $CARTHAGE ]; then ./Pods/Sourcery/bin/sourcery; fi
   GestureTVExample:
     platform: tvOS
     type: application
