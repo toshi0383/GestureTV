@@ -31,6 +31,10 @@ fileprivate func compareArrays<T>(lhs: [T], rhs: [T], compare: (_ lhs: T, _ rhs:
 extension TouchManager.TouchState: Equatable {}
 public func == (lhs: TouchManager.TouchState, rhs: TouchManager.TouchState) -> Bool {
     switch (lhs, rhs) {
+    case (.touchDown(let lhs), .touchDown(let rhs)):
+        return lhs == rhs
+    case (.touchUp(let lhs), .touchUp(let rhs)):
+        return lhs == rhs
     case (.right(let lhs), .right(let rhs)):
         return lhs == rhs
     case (.left(let lhs), .left(let rhs)):

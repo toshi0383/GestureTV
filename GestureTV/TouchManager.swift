@@ -9,8 +9,9 @@
 import UIKit
 import GameController
 
-// TODO: Support touchUp event
 public class TouchManager {
+    public var isDebugEnabled = false
+
     public class DisposeToken {
         let onDispose: () -> ()
         init(onDispose: @escaping () -> ()) {
@@ -21,18 +22,25 @@ public class TouchManager {
         }
     }
     public enum TouchState: AutoEquatable {
+        case touchDown(CGPoint)
+        case touchUp(CGPoint)
         case right(CGPoint)
         case left(CGPoint)
         case up(CGPoint)
         case down(CGPoint)
         case unknown
         init(distance: CGPoint, absolutePoint cgPoint: CGPoint) {
-            let (x, y) = (distance.x, distance.y)
-            guard (0, 0) != (x, y) else {
-                self = .unknown
+            if distance == .zero {
+                if cgPoint == .zero {
+                    assertionFailure("This case should be handled outside this enum.")
+                    self = .unknown
+                } else {
+                    self = .touchDown(cgPoint)
+                }
                 return
             }
-            if x < y {
+            let (x, y) = (distance.x, distance.y)
+            if abs(x) < abs(y) {
                 self = y < 0 ? .down(cgPoint) : .up(cgPoint)
             } else {
                 self = x < 0 ? .left(cgPoint) : .right(cgPoint)
@@ -40,6 +48,8 @@ public class TouchManager {
         }
         public var point: CGPoint {
             switch self {
+            case .touchUp(let point): return point
+            case .touchDown(let point): return point
             case .right(let point): return point
             case .left(let point): return point
             case .up(let point): return point
@@ -69,14 +79,25 @@ public class TouchManager {
                 let cgPoint = CGPoint(x: CGFloat(dpad.xAxis.value), y: CGFloat(dpad.yAxis.value))
                 if cgPoint == .zero {
                     me.totalMovement = .zero // reset
-                    me.touchState = .unknown
+                    if case .touchDown = me.touchState {
+                        me.touchState = .touchUp(cgPoint)
+                    } else {
+                        me.touchState = .unknown
+                    }
                     me.observers.forEach { $0.value(me.touchState) }
                 } else {
                     me.totalMovement += me.lastDpadPoint == .zero ? .zero : cgPoint - me.lastDpadPoint
                     let state = TouchState(distance: me.totalMovement, absolutePoint: cgPoint)
+                    if case .touchUp = state {
+
+                        me.totalMovement = .zero // reset
+                    }
                     me.touchState = state
                     me.observers.forEach { $0.value(state) }
                     me.lastDpadPoint = cgPoint
+                }
+                if self?.isDebugEnabled == true {
+                    print("touchState: \(me.touchState), dpad.xAxis.value: \(dpad.xAxis.value), dpad.yAxis.value: \(dpad.yAxis.value)")
                 }
             }
         } else {

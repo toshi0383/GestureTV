@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        _ = TouchManager.shared
+        _ = TouchManager.shared // init
+        TouchManager.shared.isDebugEnabled = true
 
         return true
     }

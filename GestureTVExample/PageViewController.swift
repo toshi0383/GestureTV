@@ -55,7 +55,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     }
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let touchState = TouchManager.shared.touchState
-        if touchState == .unknown || touchState.absoluteX > 0.8 {
+        if case .touchUp = touchState, touchState.absoluteX > 0.8 {
             return nil
         }
         if let index = vcs.index(of: viewController), 0 < index {
