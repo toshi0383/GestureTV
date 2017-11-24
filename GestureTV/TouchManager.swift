@@ -77,10 +77,14 @@ public class TouchManager {
             gc.dpad.valueChangedHandler = { [weak self] (dpad, float, bool) in
                 guard let me = self else { return }
                 let cgPoint = CGPoint(x: CGFloat(dpad.xAxis.value), y: CGFloat(dpad.yAxis.value))
+                if me.lastDpadPoint == cgPoint {
+                    // ignore same events
+                    return
+                }
                 if cgPoint == .zero {
                     me.totalMovement = .zero // reset
                     if case .touchDown = me.touchState {
-                        me.touchState = .touchUp(cgPoint)
+                        me.touchState = .touchUp(me.touchState.point) // cgPoint is zero at this time, so use previous value.
                     } else {
                         me.touchState = .unknown
                     }
@@ -94,8 +98,8 @@ public class TouchManager {
                     }
                     me.touchState = state
                     me.observers.forEach { $0.value(state) }
-                    me.lastDpadPoint = cgPoint
                 }
+                me.lastDpadPoint = cgPoint
                 if self?.isDebugEnabled == true {
                     print("touchState: \(me.touchState), dpad.xAxis.value: \(dpad.xAxis.value), dpad.yAxis.value: \(dpad.yAxis.value)")
                 }
