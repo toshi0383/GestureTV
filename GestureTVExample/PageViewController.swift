@@ -9,6 +9,10 @@
 import GestureTV
 import UIKit
 
+private enum Const {
+    static let noInteractionTimeInterval: TimeInterval = 2
+}
+
 class ContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +37,9 @@ class ContentViewController: UIViewController {
 
 class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     private var vcs: [UIViewController]!
+    private var lastTouchedTime = Date().timeIntervalSince1970
+    private var touchManagerToken: TouchManager.DisposeToken?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
@@ -42,10 +49,25 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         vc2.view.backgroundColor = .green
         vcs = [vc1, vc2]
         self.setViewControllers([vc1], direction: .forward, animated: true, completion: nil)
+        touchManagerToken = TouchManager.shared.addObserver { [weak self] _ in
+            DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 0.5) { [weak self] in
+                self?.lastTouchedTime = Date().timeIntervalSince1970
+            }
+        }
     }
+
+    private var shouldIgnoreTouch: Bool {
+        if Date().timeIntervalSince1970 - Const.noInteractionTimeInterval > lastTouchedTime {
+            let touchState = TouchManager.shared.touchState
+            if case .touchUp = touchState, touchState.absoluteX > 0.8 {
+                return true
+            }
+        }
+        return false
+    }
+
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        let touchState = TouchManager.shared.touchState
-        if case .touchUp = touchState, touchState.absoluteX > 0.8 {
+        if shouldIgnoreTouch {
             return nil
         }
         if let index = vcs.index(of: viewController), index < vcs.count - 1 {
@@ -54,8 +76,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
         return nil
     }
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        let touchState = TouchManager.shared.touchState
-        if case .touchUp = touchState, touchState.absoluteX > 0.8 {
+        if shouldIgnoreTouch {
             return nil
         }
         if let index = vcs.index(of: viewController), 0 < index {
