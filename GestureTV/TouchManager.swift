@@ -20,6 +20,9 @@ public class TouchManager {
         public func dispose() {
             onDispose()
         }
+        deinit {
+            dispose()
+        }
     }
     public enum TouchState: AutoEquatable {
         case touchDown(CGPoint)
