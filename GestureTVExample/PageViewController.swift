@@ -21,13 +21,15 @@ class ContentViewController: UIViewController {
         view.addGestureRecognizer(gr)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        print(touches.first?.location(in: view))
+        print(touches.first?.location(in: view))
         super.touchesBegan(touches, with: event)
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print(touches.first?.location(in: view))
         super.touchesMoved(touches, with: event)
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print(touches.first?.location(in: view))
         super.touchesEnded(touches, with: event)
     }
     @objc private func gesture(gesture: UISwipeGestureRecognizer) {
@@ -59,6 +61,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource {
     private var shouldIgnoreTouch: Bool {
         if Date().timeIntervalSince1970 - Const.noInteractionTimeInterval > lastTouchedTime {
             let touchState = TouchManager.shared.touchState
+            // Do not ignore GamePad(Nimbus)
             if case .touchUp = touchState, touchState.absoluteX > 0.8 {
                 return true
             }

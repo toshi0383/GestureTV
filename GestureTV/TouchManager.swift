@@ -32,15 +32,18 @@ public class TouchManager {
         case up(CGPoint)
         case down(CGPoint)
         case unknown
-        init(distance: CGPoint, absolutePoint cgPoint: CGPoint) {
-            if distance == .zero {
-                if cgPoint == .zero {
-                    assertionFailure("This case should be handled outside this enum.")
-                    self = .unknown
-                } else {
-                    self = .touchDown(cgPoint)
+        init(distance: CGPoint, absolutePoint cgPoint: CGPoint, isGamePad: Bool) {
+            // NOTE: gamepad shouldn't have .touchUp or .touchDown events. (It has direction keys.)
+            if !isGamePad {
+                if distance == .zero {
+                    if cgPoint == .zero {
+                        assertionFailure("This case should be handled outside this enum.")
+                        self = .unknown
+                    } else {
+                        self = .touchDown(cgPoint)
+                    }
+                    return
                 }
-                return
             }
             let (x, y) = (distance.x, distance.y)
             if abs(x) < abs(y) {
@@ -72,48 +75,53 @@ public class TouchManager {
     private var totalMovement: CGPoint = .zero
     private var lastDpadPoint: CGPoint = .zero
     private init() {
-        observeGCController(force: false)
+        observeGCController()
+        NotificationCenter.default.addObserver(forName: Notification.Name.GCControllerDidConnect, object: nil, queue: nil, using: { [weak self] _ in
+            self?.observeGCController()
+        })
     }
-    private func observeGCController(force: Bool) {
-        if let gc = GCController.controllers().first?.microGamepad {
-            gc.reportsAbsoluteDpadValues = true
-            gc.dpad.valueChangedHandler = { [weak self] (dpad, float, bool) in
-                guard let me = self else { return }
-                let cgPoint = CGPoint(x: CGFloat(dpad.xAxis.value), y: CGFloat(dpad.yAxis.value))
-                if me.lastDpadPoint == cgPoint {
-                    // ignore same events
-                    return
-                }
-                if cgPoint == .zero {
-                    me.totalMovement = .zero // reset
-                    if case .touchDown = me.touchState {
-                        me.touchState = .touchUp(me.touchState.point) // cgPoint is zero at this time, so use previous value.
-                    } else {
-                        me.touchState = .unknown
-                    }
-                    me.observers.forEach { $0.value(me.touchState) }
-                } else {
-                    me.totalMovement += me.lastDpadPoint == .zero ? .zero : cgPoint - me.lastDpadPoint
-                    let state = TouchState(distance: me.totalMovement, absolutePoint: cgPoint)
-                    if case .touchUp = state {
-
-                        me.totalMovement = .zero // reset
-                    }
-                    me.touchState = state
-                    me.observers.forEach { $0.value(state) }
-                }
-                me.lastDpadPoint = cgPoint
-                if self?.isDebugEnabled == true {
-                    print("touchState: \(me.touchState), dpad.xAxis.value: \(dpad.xAxis.value), dpad.yAxis.value: \(dpad.yAxis.value)")
-                }
+    private func dPadValueChangedHandler(dpad: GCControllerDirectionPad, isGamePad: Bool) {
+        let cgPoint = CGPoint(x: CGFloat(dpad.xAxis.value), y: CGFloat(dpad.yAxis.value))
+        if lastDpadPoint == cgPoint {
+            // ignore same events
+            return
+        }
+        if cgPoint == .zero {
+            totalMovement = .zero // reset
+            if case .touchDown = touchState {
+                touchState = .touchUp(touchState.point) // cgPoint is zero at this time, so use previous value.
+            } else {
+                touchState = .unknown
             }
+            observers.forEach { $0.value(touchState) }
         } else {
-            if force {
-                return
+            totalMovement += lastDpadPoint == .zero ? .zero : cgPoint - lastDpadPoint
+            let state = TouchState(distance: totalMovement, absolutePoint: cgPoint, isGamePad: isGamePad)
+            if case .touchUp = state {
+
+                totalMovement = .zero // reset
             }
-            NotificationCenter.default.addObserver(forName: Notification.Name.GCControllerDidConnect, object: nil, queue: nil, using: { [weak self] _ in
-                self?.observeGCController(force: true)
-            })
+            touchState = state
+            observers.forEach { $0.value(state) }
+        }
+        lastDpadPoint = cgPoint
+        if isDebugEnabled == true {
+            print("touchState: \(touchState), dpad.xAxis.value: \(dpad.xAxis.value), dpad.yAxis.value: \(dpad.yAxis.value)")
+        }
+    }
+
+    private func observeGCController() {
+        for controller in GCController.controllers() {
+            if let gamePad = controller.gamepad {
+                gamePad.dpad.valueChangedHandler = { [weak self] (dpad, _, _) in
+                    self?.dPadValueChangedHandler(dpad: dpad, isGamePad: true)
+                }
+            } else if let  gamePad = controller.microGamepad {
+                gamePad.reportsAbsoluteDpadValues = true
+                gamePad.dpad.valueChangedHandler = { [weak self] (dpad, _, _) in
+                    self?.dPadValueChangedHandler(dpad: dpad, isGamePad: false)
+                }
+            }
         }
     }
 
